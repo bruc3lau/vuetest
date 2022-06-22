@@ -1,0 +1,19 @@
+<body>
+    <script>
+        a = {
+            "id": 1
+        }
+        console.log(a)
+        Object.defineProperties(a, {
+            "name": {
+                enumerable: true,
+                get() {
+                    console.log("get name:" )
+                    return 666
+                }
+            }
+        })
+        console.log(a)
+        console.log(Object.keys(a))
+    </script>
+</body>
