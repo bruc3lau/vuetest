@@ -8,33 +8,34 @@
             {{message}}
         </div>
         <div>
-            <!-- <a :href="url" v-on:click="click">aaa</a> -->
+            <ul>
+                <li v-for="i in arr">{{i}}</li>
+            </ul>
         </div>
-        <div>
-            <button v-on:click="click">{{name}}</button>
-        </div>
-        <div>
-            <input type="text" @keyup="up">
-        </div>
+        <ul id="example-1">
+            <li v-for="item in items" :key="item.message">
+                {{ item.message }}
+            </li>
+        </ul>
     </div>
+
     <script>
         vm = new Vue({
             data() {
                 return {
                     message: 666,
-                    url: "https://baidu.com",
-                    name: "btn",
+                    arr: [1, 2, 3, 4, 5],
+                    items: [
+                        { message: 'Foo' },
+                        { message: 'Bar' }
+                    ]
                 }
             },
-            methods: {
-                click(a, b, c, d) {
+            watch: {
+                arr(a, b, c, d) {
                     console.log(a, b, c, d)
-                },
-                up(x) {
-                    console.log(x.keyCode)
-                    console.log(x.target.value)
                 }
-            },
+            }
         })
         console.log(vm)
         console.log(Vue.config)
